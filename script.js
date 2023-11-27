@@ -2,7 +2,7 @@ const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib
 
     async function modifyPdf() {
     // Fetch an existing PDF document
-    const url = 'leave.pdf'
+    const url = 'https://raw.githubusercontent.com/adityapathak343/bitsleave/leave.pdf'
         const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer())
 
     // Load a PDFDocument from the existing PDF bytes
@@ -103,15 +103,15 @@ const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib
     
 
     //maa chod di maa chod di maa chod di
-    const file = fetch("template.html").then(response => response.text())
-    file = file.replace(/^^NAME^^/g, name.value)
-    file = file.replace(/^^IDNO^^/g, ID.value)
-    file = file.replace(/^^HOSTEL^^/g, hostel.value)
-    file = file.replace(/^^ROOM^^/g, room.value)
-    file = file.replace(/^^LEAVEFROM^^/g, departuredate.getDate().toString()+'-'+months[departuredate.getMonth()]+'-'+(departuredate.getYear()-100+2000).toString())
-    file = file.replace(/^^LEAVTO^^/g, returnndate.getDate().toString()+'-'+months[returnndate.getMonth()]+'-'+(returnndate.getYear()-100+2000).toString())
+    const htmlFile = fetch("https://raw.githubusercontent.com/adityapathak343/bitsleave/template.html").then(response => response.text())
+    htmlFile = htmlFile.replace(/^^NAME^^/g, name.value)
+    htmlFile = htmlFile.replace(/^^IDNO^^/g, ID.value)
+    htmlFile = htmlFile.replace(/^^HOSTEL^^/g, hostel.value)
+    htmlFile = htmlFile.replace(/^^ROOM^^/g, room.value)
+    htmlFile = htmlFile.replace(/^^LEAVEFROM^^/g, departuredate.getDate().toString()+'-'+months[departuredate.getMonth()]+'-'+(departuredate.getYear()-100+2000).toString())
+    htmlFile = htmlFile.replace(/^^LEAVTO^^/g, returnndate.getDate().toString()+'-'+months[returnndate.getMonth()]+'-'+(returnndate.getYear()-100+2000).toString())
     // Create a Blob from the string
-    const blob = new Blob([fileContent], { type: 'text/plain' });
+    const blob = new Blob([htmlFile], { type: 'text/plain' });
     download(blob, 'leave.html')
 
 }
