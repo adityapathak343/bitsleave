@@ -2,7 +2,7 @@ const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib
 
     async function modifyPdf() {
     // Fetch an existing PDF document
-    const url = 'https://raw.githubusercontent.com/adityapathak343/bitsleave/leave.pdf'
+    const url = 'https://raw.githubusercontent.com/adityapathak343/bitsleave/main/leave.pdf'
         const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer())
 
     // Load a PDFDocument from the existing PDF bytes
@@ -103,15 +103,51 @@ const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib
     
 
     //maa chod di maa chod di maa chod di
-    const htmlFile = fetch("https://raw.githubusercontent.com/adityapathak343/bitsleave/template.html").then(response => response.text())
-    htmlFile = htmlFile.replace(/^^NAME^^/g, name.value)
-    htmlFile = htmlFile.replace(/^^IDNO^^/g, ID.value)
-    htmlFile = htmlFile.replace(/^^HOSTEL^^/g, hostel.value)
-    htmlFile = htmlFile.replace(/^^ROOM^^/g, room.value)
-    htmlFile = htmlFile.replace(/^^LEAVEFROM^^/g, departuredate.getDate().toString()+'-'+months[departuredate.getMonth()]+'-'+(departuredate.getYear()-100+2000).toString())
-    htmlFile = htmlFile.replace(/^^LEAVTO^^/g, returnndate.getDate().toString()+'-'+months[returnndate.getMonth()]+'-'+(returnndate.getYear()-100+2000).toString())
-    // Create a Blob from the string
-    const blob = new Blob([htmlFile], { type: 'text/plain' });
-    download(blob, 'leave.html')
+    // Function to fetch a file from a URL as a string
+    async function fetchFileAsString(url) {
+        try {
+        const response = await fetch(url);
+    
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+    
+        const fileContent = await response.text();
+        return fileContent;
+        } catch (error) {
+        console.error('Error fetching file:', error);
+        return null;
+        }
+    }
+    
+    // Function to replace a keyword with another in a string
+    function replaceKeyword(originalString, oldKeyword, newKeyword) {
+        return originalString.replace(new RegExp(oldKeyword, 'g'), newKeyword);
+    }
+    
+    // Example usage
+    url2 = 'https://raw.githubusercontent.com/adityapathak343/bitsleave/main/template.html'
+    
+    fetchFileAsString(url2)
+        .then(fileContent => {
+        if (fileContent) {
+            // Replace oldKeyword with newKeyword in the file content
+            fileContent = replaceKeyword(fileContent, 'TBRNAMETBR', name.value);
+            fileContent = replaceKeyword(fileContent, 'TBRIDNOTBR', ID.value);
+            fileContent = replaceKeyword(fileContent, 'TBRHOSTELTBR', hostel.value);
+            fileContent = replaceKeyword(fileContent, 'TBRROOMTBR', room.value);
+            fileContent = replaceKeyword(fileContent, 'TBRLEAVEFROMTBR', departuredate.getDate().toString()+'-'+months[departuredate.getMonth()]+'-'+(departuredate.getYear()-100+2000).toString());
+            fileContent = replaceKeyword(fileContent, 'TBRLEAVETOTBR', returnndate.getDate().toString()+'-'+months[returnndate.getMonth()]+'-'+(returnndate.getYear()-100+2000).toString());
+            console.log('Modified Content:', fileContent);
+            
+            // Create a Blob from the string
+            const blob = new Blob([fileContent], { type: 'text/plain' });
+            download(blob, 'leave.html')
+        }
+        })
+        .catch(error => {
+        console.error('Error:', error);
+        });
+    
 
 }
