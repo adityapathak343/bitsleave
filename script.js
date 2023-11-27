@@ -2,7 +2,7 @@ const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib
 
     async function modifyPdf() {
     // Fetch an existing PDF document
-    const url = 'https://github.com/adityapathak343/bitsleave/leave.pdf'
+    const url = 'leave.pdf'
         const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer())
 
     // Load a PDFDocument from the existing PDF bytes
@@ -103,7 +103,7 @@ const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib
     
 
     //maa chod di maa chod di maa chod di
-    const file = fetch("https://github.com/adityapathak343/bitsleave/template.html").then(response => response.text())
+    const file = fetch("template.html").then(response => response.text())
     file = file.replace(/^^NAME^^/g, name.value)
     file = file.replace(/^^IDNO^^/g, ID.value)
     file = file.replace(/^^HOSTEL^^/g, hostel.value)
