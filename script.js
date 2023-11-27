@@ -132,7 +132,7 @@ const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib
         .then(fileContent => {
         if (fileContent) {
             // Replace oldKeyword with newKeyword in the file content
-            fileContent = replaceKeyword(fileContent, 'TBRNAMETBR', name.value.toUppercase());
+            fileContent = replaceKeyword(fileContent, 'TBRNAMETBR', name.value);
             fileContent = replaceKeyword(fileContent, 'TBRIDNOTBR', ID.value);
             fileContent = replaceKeyword(fileContent, 'TBRHOSTELTBR', hostel.value);
             fileContent = replaceKeyword(fileContent, 'TBRROOMTBR', room.value);
