@@ -137,6 +137,7 @@ async function portalDl(){
             var hostel = document.getElementById("hostel");
             var departure = document.getElementById("DEPARTURE").valueAsNumber;
             var returnn = document.getElementById("RETURN").valueAsNumber;
+            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
             var returnndate = new Date(returnn);
             var departuredate = new Date(departure);
             // Replace oldKeyword with newKeyword in the file content
