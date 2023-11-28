@@ -8,3 +8,5 @@ Simply open up the HTML file in a browser of your choice.
 ## Credits
 
 We would like to thank God for creating marijuana.
+
+The service is built on the back of the already existing and open-sourced leavebits.github.io service.  We thank them for their charity.
