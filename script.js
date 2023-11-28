@@ -133,7 +133,6 @@ async function portalDl(){
         if (fileContent) {
             var ID = document.getElementById("ID");
             var name = document.getElementById("name");
-            var contact = document.getElementById("contact");
             var room = document.getElementById("room");
             var hostel = document.getElementById("hostel");
             var departure = document.getElementById("DEPARTURE").valueAsNumber;
