@@ -125,13 +125,21 @@ async function portalDl(){
     function replaceKeyword(originalString, oldKeyword, newKeyword) {
         return originalString.replace(new RegExp(oldKeyword, 'g'), newKeyword);
     }
-
     // Example usage
     url2 = 'https://raw.githubusercontent.com/adityapathak343/bitsleave/main/template.html'
 
     fetchFileAsString(url2)
         .then(fileContent => {
         if (fileContent) {
+            var ID = document.getElementById("ID");
+            var name = document.getElementById("name");
+            var contact = document.getElementById("contact");
+            var room = document.getElementById("room");
+            var hostel = document.getElementById("hostel");
+            var departure = document.getElementById("DEPARTURE").valueAsNumber;
+            var returnn = document.getElementById("RETURN").valueAsNumber;
+            var returnndate = new Date(returnn);
+            var departuredate = new Date(departure);
             // Replace oldKeyword with newKeyword in the file content
             fileContent = replaceKeyword(fileContent, 'TBRNAMETBR', name.value);
             fileContent = replaceKeyword(fileContent, 'TBRIDNOTBR', ID.value);
