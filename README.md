@@ -1,10 +1,10 @@
-## Leave Genrator
-Blazing fast generation with perfect security and request level scalability and a minimalist, ultramodern interface that minimizes clutter and stremlines the process of leaving BITS Pilani, Pilani Campus, Vidhya Vihar, Pilani, Jhunjhunu - 333031
+## Leave Generator
 
-## Generation
-leavebits uses a next generation technology in order to achieve the high generation speeds and near infinite scalability, while being eternaly uncompromising on data security.
+An updated version of the pre-existing leave generator that would generate approved PDFs.
+A more strict campus security called for a means to generate AUGSD Leave Portals as well, a feature now provided.
 
-## Royalty
-leavebits is proprietary, ultraclosed code owned IN ITS ENTIRY by FD2 Industries. It DOES NOT use ANY open source code WHATSOEVER.
-jugaad.studio is the proprietary code of FD2 Industries.
-NO use of ANY leaavebits code, or by extension, any jugaad,studio code is permitted. This the the stipulation of the FD2 Software Licence.
+Simply open up the HTML file in a browser of your choice.
+
+## Credits
+
+We would like to thank God for creating marijuana.
